@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+
+<style>
+    .nav-tabs .nav-link {
+        padding: 1.5rem 2rem;
+        color: #333;   
+    }
+
+    .nav-tabs .nav-link.active {
+        background-color: #303452;
+        color: #fff;
+    }
+
+    .finish-form {
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .finish-form img {
+        display: block;
+        width: 100% !important;
+    }
+
+    .active-element {
+        background-color: #303452;
+    }
+
+    #vizitkaStandartTarifBlock input {
+      display: none;
+    }
+
+    .vizitkaStandartActiveTarif {
+      border: 1px solid #0050b7;
+      padding: 5px 10px;
+      background-color: #006fff;
+      color: #fff;
+    }
+
+    #vizitkaStandartNameInput,
+    #vizitkaStandartTelInput {
+      font-size: 12px;
+      padding: 5px 10px;
+      width: 100%;
+    }
+
+    .dander-message {
+      border-radius: 3px 5px;
+      padding: 10px;
+      color: #fff;
+      background-color: red;
+      margin-bottom: 5px;
+    }
+</style>
+   
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="row">
+            <!-- Основной блок -->
+            <div class="col-md-9">
+                <h2>Визитка</h2>
+                    <!-- Блок с основными вкладками -->
+                    <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="vizitka-standart-tab" data-toggle="tab" href="#vizitka-standart" role="tab" aria-controls="vizitka-standart" aria-selected="true">Стандарт</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="vizitka-individual-tab" data-toggle="tab" href="#vizitka-individual" role="tab" aria-controls="vizitka-individual" aria-selected="false">Индивидуальный тираж</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="vizitka-premium-tab" data-toggle="tab" href="#vizitka-premium" role="tab" aria-controls="vizitka-premium" aria-selected="false">Премиум класс</a>
+                        </li>
+                  </ul>
+
+                  <!-- Блок с содержимым вкладок -->
+                  <div class="tab-content" id="myTabContent">
+                    <!-- Стандарт -->
+                        <div class="tab-pane fade show active" id="vizitka-standart" role="tabpanel" aria-labelledby="vizitka-standart-tab">
+                            <h4>
+                                Выберите материал
+                            </h4>
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <span type="button" class="btn btn-primary mb-2" id="standartMelovaniyKarton">Мелованный картон (300 г/м2)</span>
+                                </div>
+
+                            </div>
+
+                            <h4>
+                                Выберите цветность
+                            </h4>
+                            <div class="row mb-4">
+
+                                <div class="col-md-3">
+                                    <span type="button" class="btn btn-primary mb-2" id="standartOneSidePrintButton">Цветная печать с одной стороны</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <span type="button" class="btn btn-primary mb-2" id="standartTwoSidePrintButton">Цветная печать с двух сторон</span>
+                                </div>
+                                
+                            </div>
+
+                            <h4>
+                                Выберите время исполнения
+                            </h4>
+                            <div class="row mb-4">
+                                <div class="col-md-2">
+                                    <span type="button" class="btn btn-primary mb-2" id="standart4-5day">4-5 дней</span>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <span type="button" class="btn btn-primary mb-2" id="standart2-3day">2-3 дня</span>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <span type="button" class="btn btn-primary mb-2" id="standart1dayButton">24 часа</span>
+                                </div>
+                            </div>
+
+
+                            <h4>
+                                Тираж
+                            </h4>
+                            
+                            <div class="row mb-4" id="vizitkaStandartTarifBlock">
+
+                                <!-- Тарифы Односторонная печать / 4-5 дней -->
+                                <div id="oneSide5day" class="d-block">
+    
+                                    <div class="col-md-12 mb-2">
+                                        <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">90 x 50</span>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-500" value="500">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-500" data-standartvizitka-tarif="1386">500</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-1000" value="1000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-1000" data-standartvizitka-tarif="1537">1000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-2000" value="2000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-2000" data-standartvizitka-tarif="1900">2000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-3000" value="3000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-3000" data-standartvizitka-tarif="2500">3000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-4000" value="4000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-4000" data-standartvizitka-tarif="2900">4000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-5000" value="5000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-5000" data-standartvizitka-tarif="3567">5000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-6000" value="6000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-6000" data-standartvizitka-tarif="3958">6000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-8000" value="8000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-8000" data-standartvizitka-tarif="4743">8000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-10000" value="10000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-10000" data-standartvizitka-tarif="5526">10000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5days90x50-20000" value="20000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5days90x50-20000" data-standartvizitka-tarif="9606">20000</label>
+                                          </div>
+                                    </div>
+    
+    
+    
+                                    <div class="col-md-12 mb-2">
+                                        <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">85 x 50</span>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-500" value="500">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-500" data-standartvizitka-tarif="1386">500</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-1000" value="1000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-1000" data-standartvizitka-tarif="1537">1000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-2000" value="2000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-2000" data-standartvizitka-tarif="1900">2000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-3000" value="3000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-3000" data-standartvizitka-tarif="2500">3000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-4000" value="4000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-4000" data-standartvizitka-tarif="2900">4000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-5000" value="5000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-5000" data-standartvizitka-tarif="3567">5000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-6000" value="6000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-6000" data-standartvizitka-tarif="3958">6000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-8000" value="8000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-8000" data-standartvizitka-tarif="4743">8000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-10000" value="10000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-10000" data-standartvizitka-tarif="5526">10000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-20000" value="20000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-20000" data-standartvizitka-tarif="9606">20000</label>
+                                          </div>
+                                    </div>
+                                </div>
+
+                                <!-- Тарифы Односторонная печать / 2-3 дня -->
+                                <div id="oneSide3day" class="d-none">
+    
+                                    <div class="col-md-12 mb-2">
+                                        <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">90 x 50</span>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-500" value="500">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-500" data-standartvizitka-tarif="1386">500</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-1000" value="1000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-1000" data-standartvizitka-tarif="1537">1000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-2000" value="2000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-2000" data-standartvizitka-tarif="1900">2000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-3000" value="3000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-3000" data-standartvizitka-tarif="2500">3000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-4000" value="4000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-4000" data-standartvizitka-tarif="2900">4000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-5000" value="5000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-5000" data-standartvizitka-tarif="3567">5000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-6000" value="6000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-6000" data-standartvizitka-tarif="3958">6000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-8000" value="8000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-8000" data-standartvizitka-tarif="4743">8000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-10000" value="10000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-10000" data-standartvizitka-tarif="5526">10000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days90x50-20000" value="20000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days90x50-20000" data-standartvizitka-tarif="9606">20000</label>
+                                          </div>
+                                    </div>
+    
+    
+    
+                                    <div class="col-md-12 mb-2">
+                                        <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">85 x 50</span>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-500" value="500">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-500" data-standartvizitka-tarif="1386">500</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-1000" value="1000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-1000" data-standartvizitka-tarif="1537">1000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-2000" value="2000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-2000" data-standartvizitka-tarif="1900">2000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-3000" value="3000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-3000" data-standartvizitka-tarif="2500">3000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-4000" value="4000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-4000" data-standartvizitka-tarif="2900">4000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-5000" value="5000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-5000" data-standartvizitka-tarif="3567">5000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-6000" value="6000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-6000" data-standartvizitka-tarif="3958">6000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-8000" value="8000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-8000" data-standartvizitka-tarif="4743">8000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-10000" value="10000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-10000" data-standartvizitka-tarif="5526">10000</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-20000" value="20000">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-20000"data-standartvizitka-tarif="9606">20000</label>
+                                          </div>
+                                    </div>
+                                </div>
+
+                                <!-- Тарифы Односторонная печать / 1 день -->
+                                <div id="oneSide1day" class="d-none">
+
+                                    <div class="col-md-12 mb-2">
+                                        <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">90 x 50</span>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide1Day90x50-50" value="50">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide1Day90x50-50" data-standartvizitka-tarif="300">50</label>
+                                        </div>
+                                            <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide1Day90x50-100" value="100">
+                                            <label class="form-check-label tarifs-label" for="standartOneSide1Day90x50-100" data-standartvizitka-tarif="500">100</label>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+
+                                <!-- Тарифы Двухсторонняя печать / 2-3 дня -->
+                                <div id="twoSide5day" class="d-none">
+    
+                                  <div class="col-md-12 mb-2">
+                                      <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">90 x 50</span>
+
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-500" value="500">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-500" data-standartvizitka-tarif="1583">500</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-1000" value="1000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-1000" data-standartvizitka-tarif="1693">1000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-2000" value="2000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-2000" data-standartvizitka-tarif="2098">2000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-3000" value="3000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-3000" data-standartvizitka-tarif="2859">3000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-4000" value="4000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-4000" data-standartvizitka-tarif="3288">4000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-5000" value="5000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-5000" data-standartvizitka-tarif="4118">5000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standarTwoeSide5days90x50-6000" value="6000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-6000" data-standartvizitka-tarif="4641">6000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-8000" value="8000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-8000" data-standartvizitka-tarif="5685">8000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-10000" value="10000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-10000" data-standartvizitka-tarif="6731">10000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide5days90x50-20000" value="20000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide5days90x50-20000" data-standartvizitka-tarif="11542">20000</label>
+                                        </div>
+                                  </div>
+  
+  
+  
+                                  <div class="col-md-12 mb-2">
+                                      <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">85 x 50</span>
+
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-500" value="500">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-500" data-standartvizitka-tarif="1583">500</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-1000" value="1000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-1000" data-standartvizitka-tarif="1693">1000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-2000" value="2000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-2000" data-standartvizitka-tarif="2098">2000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-3000" value="3000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-3000" data-standartvizitka-tarif="2859">3000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-4000" value="4000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-4000" data-standartvizitka-tarif="3288">4000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-5000" value="5000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-5000" data-standartvizitka-tarif="4118">5000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-6000" value="6000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-6000" data-standartvizitka-tarif="4641">6000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-8000" value="8000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-8000" data-standartvizitka-tarif="5685">8000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-10000" value="10000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-10000" data-standartvizitka-tarif="6731">10000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide5Days85x50-20000" value="20000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide5Days85x50-20000" data-standartvizitka-tarif="11542">20000</label>
+                                        </div>
+                                  </div>
+                                </div>
+
+                                <!-- Тарифы Односторонная печать / 2-3 дней -->
+                                <div id="twoSide3day" class="d-none">
+
+                                  <div class="col-md-12 mb-2">
+                                      <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">90 x 50</span>
+
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-1000" value="1000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-1000" data-standartvizitka-tarif="2043">1000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-2000" value="2000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-2000" data-standartvizitka-tarif="2470">2000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-3000" value="3000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-3000" data-standartvizitka-tarif="3268">3000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-4000" value="4000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-4000" data-standartvizitka-tarif="3720">4000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-5000" value="5000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-5000" data-standartvizitka-tarif="4590">5000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-6000" value="6000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-6000" data-standartvizitka-tarif="5140">6000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-8000" value="8000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-8000" data-standartvizitka-tarif="6237">8000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartTwoSide3Days90x50-10000" value="10000">
+                                          <label class="form-check-label tarifs-label" for="standartTwoSide3Days90x50-10000" data-standartvizitka-tarif="7337">10000</label>
+                                        </div>
+
+                                  </div>
+  
+  
+  
+                                  <div class="col-md-12 mb-2">
+                                      <span class="d-inline-block p-2 mr-3" style="border: 1px solid black; border-radius: 5px;">85 x 50</span>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-1000" value="1000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-1000" data-standartvizitka-tarif="2043">1000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-2000" value="2000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-2000" data-standartvizitka-tarif="2470">2000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-3000" value="3000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-3000" data-standartvizitka-tarif="3268">3000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-4000" value="4000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-4000" data-standartvizitka-tarif="3720">4000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-5000" value="5000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-5000" data-standartvizitka-tarif="4590">5000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-6000" value="6000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-6000" data-standartvizitka-tarif="5140">6000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-8000" value="8000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-8000" data-standartvizitka-tarif="6237">8000</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="standartOneSide3Days85x50-10000" value="10000">
+                                          <label class="form-check-label tarifs-label" for="standartOneSide3Days85x50-10000" data-standartvizitka-tarif="7337">10000</label>
+                                        </div>
+
+                                  </div>
+                              </div>
+
+                                <!-- Тарифы Двухсторонняя печать / 1 день -->
+                                <div id="twoSide1day" class="d-none">
+
+                                  <div class="col-md-12 mb-2">
+                                      Для выбранных параметров отсутствует тариф. Выберите другой вариант печати или время выполнения заказа.
+                                      
+                                  </div>
+                                  
+                              </div>
+                            </div>
+                        </div>
+                    <!-- Индивидуальный тираж -->
+                        <div class="tab-pane fade" id="vizitka-individual" role="tabpanel" aria-labelledby="vizitka-individual-tab">2</div>
+                        <!-- Премиум класс -->
+                        <div class="tab-pane fade" id="vizitka-premium" role="tabpanel" aria-labelledby="vizitka-premium-tab">3</div>
+                  </div>
+            </div>
+
+            <!-- Сайдбар с расчетом -->
+            <div class="col-md-3 mt-5">
+                <div class="finish-form p-2 mb-2">
+                    <img src="vizitka-img.jpg" style="width: auto;" alt="Макет визитки">
+                </div>
+
+                <p class="text-danger">
+                    Внимание! Перед отправкой макета в типографию, проверьте правильность расположения оборота относительно лица при перевороте слева направо!
+                </p>
+
+                <div class="visitkaStandartResultBlock" id="vizitkaStandartResultBlock">
+                    <p>Изделие: визитка</p>
+                    <p>Тираж: <span id="vizitkaStandartTiraj"></span></p>
+                    <p>Цветность: <span id="vizitkaStandartSides"></span></p>
+                    <p>За экземпляр: <span id="vizitkaStandartSinglePrice"></span></p>
+                    <p>Цена итого: <span id="vizitkaStandartPrice" class="text-success font-weight-bold"></span></p>
+
+                    <div class="dander-message d-none" id="nameErrorBlock">Введите Ваше имя</div>
+                    <input class="mb-2 d-none" type="text" id="vizitkaStandartNameInput" placeholder="Ваше имя?">
+                    <div class="dander-message d-none" id="telErrorBlock">Введите Ваш телефон</div>
+                    <input class="mb-2 d-none" type="tel" id="vizitkaStandartTelInput" placeholder="Укажите телефон">
+
+                    <form method="post" id="vizitkaStandartMaket" enctype="multipart/form-data">
+                      <div class="form-group">
+                        <label for="vizitkaStandartMaketDownload">Загрузите макет</label>
+                        <input type="file" name="file" class="form-control-file" id="vizitkaStandartMaketDownload">
+                      </div>
+
+                      <button class="btn btn-primary" id="vizitkaStandartSubmitButton" disabled type="submit">Отправить заказ</button>
+                    </form>
+
+                    
+
+                    <div id="vizitkaStandartSuccessOrder"></div>
+                </div>
+
+                <div class="visitkaIndividualResultBlock d-none" id="vizitkaIndividualResultBlock">
+                    <p>Изделие: визитка</p>
+
+                    <button class="btn btn-primary">Расчитать</button>
+                </div>
+
+                <div class="visitkaPremiumResultBlock d-none" id="vizitkaPremiumResultBlock">
+                    <p>Параметры премиум заказа</p>                    
+
+                    <button class="btn btn-primary">Отправить заказ</button>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <script src="vizitka-calc.js"></script>
+</body>
+</html>
+
